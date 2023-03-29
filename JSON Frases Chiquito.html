@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <p>Frases de Chiquito</p>
+        <button class="newQuote"> Otra frase </button>
+    </div>
+
+    <script>
+        let frase = document.querySelector('p')
+        let botonFrase = document.querySelector('.newQuote')
+        botonFrase.addEventListener('click', dameFrase)
+
+
+        function dameFrase() {
+            fetch('https://api.chiquito.ws/')
+                .then(response => response.json())
+                .then(data => frase.innerHTML = data.quote);
+
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
